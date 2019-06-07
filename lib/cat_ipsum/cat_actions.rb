@@ -49,5 +49,5 @@ module CatIpsum
     'use lap as chair',
     'why must they do that',
     'yawn so much'
-  ]
+  ].freeze
 end
