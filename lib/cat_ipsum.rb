@@ -5,7 +5,11 @@ module CatIpsum
   extend self
 
   def sentence
-    Array.new(rand(1..5), CAT_ACTIONS.sample).join(', ').capitalize
+    result = []
+    rand(1..5).times do
+      result << CAT_ACTIONS.sample
+    end
+    result.join(', ').capitalize
   end
 
   alias phrase sentence
