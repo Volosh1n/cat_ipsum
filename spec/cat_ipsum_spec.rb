@@ -1,9 +1,25 @@
 RSpec.describe CatIpsum do
-  it 'has a version number' do
-    expect(CatIpsum::VERSION).not_to be nil
+  describe '#sentence' do
+    it { expect(CatIpsum.sentence).to be_a String }
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe '#phrase' do
+    it { expect(CatIpsum.phrase).to be_a String }
+  end
+
+  describe '#sentences' do
+    it { expect(CatIpsum.sentences).to be_a Array }
+  end
+
+  describe '#phrases' do
+    it { expect(CatIpsum.phrases).to be_a Array }
+  end
+
+  describe '#paragraph' do
+    it { expect(CatIpsum.paragraph).to be_a String }
+  end
+
+  describe '#paragraphs' do
+    it { expect(CatIpsum.paragraphs).to be_a Array }
   end
 end
