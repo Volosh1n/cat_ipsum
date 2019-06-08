@@ -4,12 +4,10 @@ require 'cat_ipsum/cat_actions'
 module CatIpsum
   extend self
 
+  attr_writer :seed
+
   def sentence
-    result = []
-    rand(1..5).times do
-      result << CAT_ACTIONS.sample
-    end
-    result.join(', ').capitalize
+    sample(CAT_ACTIONS.dup).join(', ').capitalize
   end
 
   alias phrase sentence
@@ -26,5 +24,19 @@ module CatIpsum
 
   def paragraphs(paragraph_count = 5)
     (1..paragraph_count).map { paragraph }
+  end
+
+  def reset!
+    @seed = nil
+    true
+  end
+
+  private
+
+  attr_reader :seed
+
+  def sample(array)
+    randomizer = seed ? Random.new(seed) : Random.new
+    array.shuffle(random: randomizer).take(3)
   end
 end
