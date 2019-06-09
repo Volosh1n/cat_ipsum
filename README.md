@@ -32,6 +32,24 @@ CatIpsum.paragraph
 
 `CatIpsum.sentences` and `CatIpsum.paragraphs` returns arrays of their original methods.
 
+All of the methods could take integer parameter to configure count of sentence parts or elements in array.
+Some examples:
+
+```ruby
+CatIpsum.sentence(1)
+# => "Stand in front of the computer screen."
+
+CatIpsum.sentence(2)
+# => "Get on the high shelf, swat at dog."
+
+CatIpsum.sentences(1)
+#=> ["Play time, stretch, need to chase tail."]
+
+CatIpsum.sentences(2)
+#=> ["Sleep on keyboard, intently stare at the same spot, sweet beast.", "Intrigued by the shower, rub face on everything, burrow under covers."]
+
+```
+
 `CatIpsum.phrase` and `CatIpsum.phrases` are aliases to `CatIpsum.sentence` and `CatIpsum.sentence`.
 
 #### Working with randomizing seeds

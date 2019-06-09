@@ -5,23 +5,23 @@ require 'cat_ipsum/random'
 module CatIpsum
   extend self
 
-  def sentence
-    Random.sample(CAT_ACTIONS.dup).join(', ').capitalize
+  def sentence(actions_count = 3)
+    Random.sample(CAT_ACTIONS.dup, count: actions_count).join(', ').capitalize + '.'
   end
 
   alias phrase sentence
 
-  def sentences(sentence_count = 5)
-    (1..sentence_count).map { sentence }
+  def sentences(sentences_count = 5)
+    (1..sentences_count).map { sentence }
   end
 
   alias phrases sentences
 
-  def paragraph
-    sentences.join('. ')
+  def paragraph(sentences_count = 5)
+    sentences(sentences_count).join(' ')
   end
 
-  def paragraphs(paragraph_count = 5)
-    (1..paragraph_count).map { paragraph }
+  def paragraphs(paragraphs_count = 5)
+    (1..paragraphs_count).map { paragraph }
   end
 end

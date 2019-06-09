@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cat_ipsum (0.2.0)
+    cat_ipsum (0.2.2)
 
 GEM
   remote: https://rubygems.org/

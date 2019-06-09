@@ -1,6 +1,10 @@
 Metrics/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Exclude:
+    - spec/*
+
 Style/Documentation:
   Enabled: false
 
@@ -9,4 +13,7 @@ Style/GuardClause:
     - cat_ipsum.gemspec
 
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ModuleFunction:
   Enabled: false
