@@ -36,28 +36,14 @@ CatIpsum.paragraph
 
 #### Working with randomizing seeds
 
-You can specify your seed to generate repeatable data. This seed can be reseted by `CatIpsum.reset!` method.
+You can specify your seed to generate repeatable data. Also, seed can be reseted by `CatIpsum.reset!` method.
 Example:
 
 ```ruby
 CatIpsum.sentence
-# => "Flop over, intently stare at the same spot, why must they do that"
-
-CatIpsum.seed = 123
-# => 123
-
-CatIpsum.sentence
-# => "Climb leg, flop over, play time"
-
-CatIpsum.sentence
-# => "Climb leg, flop over, play time"
-
-CatIpsum.reset!
+# => "Leave hair everywhere, shake treat bag, missing until dinner time"
+CatIpsum::Random.reset!
 # => true
-
 CatIpsum.sentence
-# => "Play time, yawn so much, find something else more interesting"
-
-CatIpsum.sentence
-# => "Burrow under covers, missing until dinner time, go crazy"
+# => "Leave hair everywhere, shake treat bag, missing until dinner time"
 ```

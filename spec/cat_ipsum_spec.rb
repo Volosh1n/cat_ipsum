@@ -35,18 +35,13 @@ RSpec.describe CatIpsum do
     it { expect(CatIpsum.paragraphs).to be_a Array }
   end
 
-  describe 'repeatable' do
-    it 'allows to use seed to generate repeatable data' do
-      CatIpsum.seed = SOME_DEFINED_SEED
-      3.times do
-        expect(CatIpsum.sentences).to eq(CatIpsum.sentences)
-      end
-    end
-
-    it 'allows to reset specified seed to generate random data again' do
-      expect(CatIpsum.sentences).to eq(CatIpsum.sentences)
-      CatIpsum.reset!
-      expect(CatIpsum.sentences).not_to eq(CatIpsum.sentences)
+  describe 'seed manage' do
+    it 'allows to reset seed to generate repeatable data' do
+      CatIpsum::Random.reset!
+      first_call = CatIpsum.sentences
+      CatIpsum::Random.reset!
+      second_call = CatIpsum.sentences
+      expect(first_call).to eq(second_call)
     end
   end
 end
