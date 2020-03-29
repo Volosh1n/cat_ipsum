@@ -65,3 +65,16 @@ CatIpsum::Random.reset!
 CatIpsum.sentence
 # => "Leave hair everywhere, shake treat bag, missing until dinner time"
 ```
+
+## Using the same random seed as your tests
+
+To get repeatable results in Rspec, you can do following:
+
+```ruby
+RSpec.configure do |config|
+  config.before(:all)  { CatIpsum::Random.seed = config.seed }
+  config.before { CatIpsum::Random.reset! }
+end
+```
+
+cat_ipsum will now use the same random seed as Rspec, including seeds passed in using `--seed nnn` on the command line, and will return the same data every time that seed is used.
